@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contas a Pagar</title>
+    <style>
+        *{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        body{
+            background-color:snow;
+        }
+        h2{
+            color: darkslateblue;
+            text-align: center;
+        }
+        #container {
+            text-align: center;
+            margin: auto;
+            width: 30%;
+            padding: 10px;
+            border: darkslateblue;
+            border-style: solid;
+            border-radius:10px;
+            width: 30%;
+        }
+        label{
+            color: darkslateblue;
+            
+        }
+        hr{
+            width: 50%; 
+            height: 2px; 
+            color: gray;
+            background-color: darkslateblue;
+        }
+        #btnRegistrar{
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            background-color: darkslateblue;
+        }
+        #btnRegistrar:hover{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>Programa Contas a Pagar</h2>
+        <hr>
+        
+        <label for="descricaoDaConta">Desrição da Conta</label>
+        <input type="text" id="descricaoDaConta">
+
+        <br><br>
+        <label for="valor">Valor da Conta R$:</label>
+        <input type="number" id="valor">
+
+        <br><br>
+        <input type="button" value="Registrar contas" id="btnRegistrar">
+
+        <hr style="border-top: 1px dashed grey;">
+
+        <pre id="listaConta"></pre>
+        <pre id="valTotalConta"></pre>
+
+    </div>
+    
+    <script>
+
+        function criarTabuada () {
+            
+            var descricaoDaConta = document.getElementById("descricaoDaConta").value;
+            var valor = document.getElementById("valor");
+            var inValor = parseFloat(valor.value);
+            var listaConta = document.getElementById("listaConta");
+            var valTotalConta = document.getElementById("valTotalConta");
+
+            var respLista = '';
+            var respTotal = '';
+            
+            contagemContas += 1;
+            valorTotal += inValor;
+
+            respLista += descricaoDaConta + " - R$: " + inValor + "\n";
+            respTotal += contagemContas + " Conta(s) - Total R$ : " + valorTotal;
+
+
+            listaConta.textContent += respLista;
+            valTotalConta.textContent = respTotal;
+
+        }
+
+        var btnRegistrar = document.getElementById("btnRegistrar");
+        btnRegistrar.onclick = criarTabuada;
+
+        var contagemContas = 0;
+        var valorTotal = 0;
+
+    </script>
+
+</body>
+</html>

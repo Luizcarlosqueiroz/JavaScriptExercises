@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordem Crescente</title>
+
+    <style>
+        body{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #333333;
+        }
+        h2{
+            color: seashell;
+            text-align: center;
+            text-decoration: underline;
+        }
+        #container {
+            text-align: center;
+            margin: auto;
+            width: 30%;
+            padding: 10px;
+            border: seashell;
+            border-style: solid;
+            border-radius:10px;
+            width: 30%;
+        }
+        label{
+            color: seashell;
+            
+        }
+        hr{
+            width: 50%; 
+            height: 2px; 
+            color: gray;
+            background-color: seashell;
+        }
+        #btnAdd , #btnOrdem{
+            border: none;
+            color: white;
+            padding: 10px 32px;
+            text-align: center;
+            font-size: 16px;
+            margin: 20px 0px 2px;
+            background-color: grey;
+        }
+        #btnAdd:hover, #btnOrdem:hover{
+            background-color: darkgray;
+        }
+        #resultadoVetor, #resultadoOrdem{
+            font-size: 130%;
+            color: white;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div id="container">
+        <h2>Ordem Crescente</h2>
+
+        <label for="">Número: </label>
+        <input type="number" id="numero">
+
+        <br>
+        <input type="button" value="Adicionar" id="btnAdd">
+
+        <br>
+        <input type="button" value="Verificar Ordem" id="btnOrdem">
+
+        <hr>
+
+        <pre id="resultadoVetor"></pre>
+        <pre id="resultadoOrdem"></pre>
+
+    </div>
+
+    <script>
+
+        var numero = document.getElementById("numero");
+        var resultadoVetor = document.getElementById("resultadoVetor");
+        var resultadoOrdem = document.getElementById("resultadoOrdem");
+        var vetor = [];
+
+
+        function adicionarAoVetor() {
+            
+            innumero = Number(numero.value);
+
+            if (vetor.includes(innumero)){
+                alert("Valor já existe no vetor.")
+            } else {
+                vetor.push(innumero);
+
+                resultadoVetor.textContent = vetor;
+                
+                numero.value = "";
+                numero.focus();
+            }
+        }
+
+        function ordenarVetor() {
+
+            var negativa = " ";
+
+            for (var i = 0 ; i < vetor.length - 1 ; i++){
+                if (vetor[i] > vetor[i+1]){
+                    negativa += "NÃO ";
+                    break;
+                }
+            }
+
+            resultadoOrdem.textContent = "Atenção: os números" + negativa + "estão em ordem crescente";
+
+        }
+
+
+        var btnAdd = document.getElementById("btnAdd");
+        btnAdd.onclick = adicionarAoVetor;
+
+        var btnOrdem = document.getElementById("btnOrdem");
+        btnOrdem.onclick = ordenarVetor;
+
+    </script>
+
+</body>
+</html>

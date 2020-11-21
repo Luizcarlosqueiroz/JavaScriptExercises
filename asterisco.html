@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressão Asteriscos</title>
+</head>
+<body>
+    
+    <label for="numeroLinhas">Número de Linhas: </label>
+    <input type="number" id="numeroLinhas">
+
+    <br>
+    <!-- <input type="button" value="Imprimir" onclick="imprimirAsteriscos"> -->
+
+    <input type="button" value="Imprimir" id="btnImprimir">
+    <hr>
+
+    <pre id="resultado"></pre>
+
+    <script>
+
+        function imprimirAsteriscos() {
+
+            var numeroLinhas = document.getElementById("numeroLinhas");
+            var inNumero = parseInt(numeroLinhas.value);
+            var resultado = document.getElementById("resultado");
+            
+            var resposta = '';
+
+            for (let i = 1; i <= inNumero; i++){
+
+                for (let j = 0; j < i; j++){
+                    resposta += "*";
+                }
+
+                resposta += '\n';
+            }
+
+            resultado.textContent = resposta;
+
+        }
+        
+        var btnImprimir = document.getElementById("btnImprimir");
+        btnImprimir.onclick = imprimirAsteriscos;
+
+
+    </script>
+
+
+</body>
+</html>

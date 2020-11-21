@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Clínica Veterinária</title>
+</head>
+<body>
+    <h3>Clínica Veterinária</h3>
+
+    <form>
+
+        <label for="valor">Valor da vacina R$: </label>
+        <input id="valor" type="number" name="valor"> </input> <br>
+
+        <label for="radio">Possui convênio: </label>
+        <input type="radio" name="radio" value="sim" id="sim" onclick="exibirOpcoes()"> Sim </input>
+        <input type="radio" name="radio" value="nao" id="nao" onclick="esconderOpcoes()"> Não </input><br>
+        
+        <select name="convenio" id="convenio">
+            <option value="0" disabled selected>Opções</option>
+            <option id="amigosDosAnimais" value="1">Amigos dos Animais</option>
+            <option id="saudeAnimal" value="2">Saúde Animal</option>
+        </select> <br><br>
+        
+        <button id="gerarResultado" type="submit"> Gerar Resultado</button>
+
+    </form>
+
+    <div id="resultado"></div>
+
+
+    <script>
+
+        var valor = document.getElementById("valor");
+        var radio = document.getElementById("radio");
+        var convenio = document.getElementById("convenio")
+        var resultado = document.getElementById('resultado');
+        var precoFinal = 0;
+
+        function exibirOpcoes() {
+            if (radio[0].checked){
+                convenio.style.opacity = '1';
+            }
+        }
+
+        function esconderOpcoes() {
+            if (radio[1].checked){
+                convenio.style.opacity = '0';
+            } 
+        }
+
+
+
+
+        function calcularPrecoFinal() {
+
+            var option1 = document.getElementById("amigosDosAnimais");
+            var option2 = document.getElementById("saudeAnimal");
+
+            if (radio[1].checked) {
+                precoFinal = preco * 0.9;
+                return precoFinal
+            } else if (radio[0].checked && option1.convenio) {
+                precoFinal = preco * 0.8;
+                return precoFinal;
+            } else if (radio[0].checked && option2.convenio) {
+                precoFinal = preco * 0.55
+            }
+        }
+
+
+        function exibirResultado() {
+            preco = Number(valor.value);
+            resultado.innerHTML = "";
+            calcularDesconto();
+            
+            var desconto = preco - precoFinal;
+            resultado.innerHTML += "Desconto R$: " + Math.round(desconto);
+            resultado.innerHTML += "Valor a pagar R$: " + Math.round(precoFinal);
+        }
+
+
+    </script>
+
+
+</body>
+</html>

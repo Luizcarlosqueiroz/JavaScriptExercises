@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Atleta e Idade</title>
+    
+    <style>
+        body{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #333333;
+        }
+        h2{
+            color: seashell;
+            text-align: center;
+        }
+        #container {
+            text-align: center;
+            margin: auto;
+            width: 30%;
+            padding: 10px;
+            border: seashell;
+            border-style: solid;
+            border-radius:10px;
+            width: 30%;
+        }
+        label{
+            color: seashell;
+            
+        }
+        hr{
+            width: 50%; 
+            height: 2px; 
+            color: gray;
+            background-color: seashell;
+        }
+        #btnGerar{
+            border: none;
+            color: white;
+            padding: 10px 32px;
+            text-align: center;
+            font-size: 16px;
+            margin: 20px 2px;
+            background-color: grey;
+        }
+        #btnGerar:hover{
+            background-color: darkgray;
+        }
+        #resultadoFinal{
+            font-size: 130%;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div id="container">
+
+        <h2>Atleta e Idade</h2>
+
+        <br>
+        <label for="nomeAtleta">Nome do Atleta: </label>
+        <input type="text" id="nomeAtleta">
+        
+        <br>
+        <label for="idade">Idade: </label>
+        <input type="number" id="idade">
+
+        <br>
+        <input type="button" value="Categorizar" id="btnGerar">
+
+        <hr>
+
+        <pre id="resultadoFinal"></pre>
+
+    </div>
+
+
+    <script>
+
+        var nomeAtleta = document.getElementById("nomeAtleta");
+        var idade = document.getElementById("idade");
+        var resultadoFinal = document.getElementById("resultadoFinal");
+
+
+        function retornarTracos(nomeAtleta) {
+            var resultadoNome = '';
+
+            for (var i = 0 ; i < nomeAtleta.length ; i++){
+                if (nomeAtleta[i] == " "){
+                    resultadoNome += " ";
+                } else {
+                    resultadoNome += "-";
+                }
+            }
+            
+            return resultadoNome;
+
+        }
+
+
+        function categorizarAluno(idade) {
+            
+            var resultadoIdade = 'Categoria: ';
+
+            if (idade <= 12) {
+                resultadoIdade += "Infantil";
+            } else if (idade <= 18) {
+                resultadoIdade += "Juvenil";
+            } else if (idade > 18) {
+                resultadoIdade += "Adulto";
+            }
+
+            return resultadoIdade;
+        }
+
+
+        function exibirResultado() {
+
+            var innomeAtleta = nomeAtleta.value;
+            var inidade = Number(idade.value);
+
+            var textoFinal = innomeAtleta + '\n';
+
+            textoFinal += retornarTracos(innomeAtleta) + "\n";
+            textoFinal += categorizarAluno(inidade);
+
+            resultadoFinal.textContent = textoFinal;
+        }
+
+
+        var btnGerar = document.getElementById("btnGerar");
+        btnGerar.onclick = exibirResultado;
+
+    </script>
+
+</body>
+</html>

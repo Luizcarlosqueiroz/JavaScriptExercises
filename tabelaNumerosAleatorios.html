@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gerar Tabela de Números Aleatórios</title>
+
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #1a1a1a;
+        }
+        #container{
+            background-color:gainsboro;
+            width: 30%;
+            margin: auto;
+            border: 5px solid white;
+            border-radius: 20px;
+            text-align: center;
+        }
+        body h2 {
+            color: #1a1a1a;
+            text-decoration: underline;
+        }
+        body label {
+            color:  #1a1a1a;
+        }
+        #btnGerar {
+            background-color: #1a1a1a;
+            color: white;
+            text-decoration:solid;
+            font-size: 120%;
+            margin: 20px 2px;
+            padding: 5px;
+        }
+        #resultadoFinal{
+            margin: auto;
+        }
+        #resultadoFinal table, th, td {
+            border: 1px dashed black;
+            border-collapse: collapse;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+    <div id="container">
+
+        <h2>Gerador de Números Aleatórios</h2>
+
+        <label for="qtdNumeros">Quantidade de Números: </label>
+        <input type="number" id="qtdNumeros" value="100">
+
+        <br>
+        <label for="">Valor Mínimo:</label>
+        <input type="number" id="valorMin" value="1">
+
+        <br>
+        <label id="">Valor Máximo:</label>
+        <input type="number" id="valorMax" value="200">
+
+        <br>
+        <label for="">Quantidade Colunas:</label>
+        <input type= "number" name="" id="numbColunas" value="5">
+
+        <br>
+        <input type="button" value="Gerar Tabela" id="btnGerar">
+
+        <hr>
+        
+        <div>
+            <table id="resultadoFinal">
+
+            </table>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        } 
+
+        function gerarVetor() {
+            var vetor = [];
+            var qtdNumeros = document.getElementById("qtdNumeros");
+            var numero;
+
+            for (var i = 0; i < qtdNumeros.value; i++) {
+
+                var valorMin = document.getElementById("valorMin");
+                var valorMax = document.getElementById("valorMax");
+
+                if (parseInt(valorMin.value) > parseInt(valorMax.value)) {
+                    var aux = valorMax.value;
+                    valorMax.value = valorMin.value;
+                    valorMin.value = aux;
+                }
+
+                numero = Math.floor (getRandomInt(parseInt(valorMin.value),parseInt(valorMax.value)) );
+
+                while (vetor.indexOf(numero) !== -1) {
+                    numero = Math.floor (getRandomInt(parseInt(valorMin.value),parseInt(valorMax.value)) );
+                }
+
+                vetor.push(numero);
+
+            }
+
+            console.log('vetor', vetor);
+            return vetor;
+
+        }
+
+
+        function gerarTabela() {
+            var qtdNumeros = parseInt(document.getElementById("qtdNumeros").value);
+            var numbColunas = parseInt(document.getElementById("numbColunas").value);
+            var resultadoFinal = document.getElementById("resultadoFinal");
+
+            var qtdLinhas = Math.ceil(qtdNumeros / numbColunas);
+            var vetor = gerarVetor();
+
+            resultadoFinal.innerHTML = '';
+
+            console.log('col', numbColunas);
+            console.log('linh' , qtdLinhas);
+
+
+            for (var j = 0; j < qtdLinhas; j++) {
+                
+                var elementoLinha = document.createElement('tr');
+                
+                for (var i = 0; i < numbColunas; i++) {
+                    var indice = j * numbColunas + i;
+                    if (indice >= vetor.length) {
+                        break;
+                    }
+                    var elementoColuna = document.createElement('td');
+                    var resultado = document.createTextNode(" " + vetor[indice]);
+                    
+                    elementoLinha.appendChild(elementoColuna);
+                    elementoColuna.appendChild(resultado);
+                }
+
+                resultadoFinal.appendChild(elementoLinha);
+
+            }
+
+        }
+
+        var btnGerar = document.getElementById("btnGerar");
+        btnGerar.onclick = gerarTabela;
+
+    </script>
+
+
+
+    
+</body>
+</html>

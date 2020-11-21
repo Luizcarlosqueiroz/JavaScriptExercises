@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Farmácia</title>
+</head>
+
+<body>
+    <h3>Farmácia</h3>
+
+    <label for="medicamento">Medicamento: </label>
+    <input type="text" id="medicamento">
+
+    <br>
+    <label for="preco">Preço: </label>
+    <input type="number" id="preco" min="0" step=".01">
+
+    <br>
+    <input type="button" id="obterDesconto" value="Obter Desconto" onclick="obterDesconto()">
+
+    <br>
+    <div id="resultado">Desconto</div>
+
+    <script>
+
+        function obterDesconto(){
+            var nomeMedicamento = document.getElementById("medicamento").value;
+            var precoInicial = document.getElementById("preco").value;
+
+            var precoDesconto = Math.trunc(2 * precoInicial).toFixed(2);
+            resultado.innerHTML = "Promoção de " + nomeMedicamento + "\n Leve 2 por apenas R$: " + precoDesconto; 
+        }
+            
+    </script>
+
+</body>
+
+</html>

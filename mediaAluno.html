@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Média Aluno</title>
+
+    <style>
+        *{
+            font-family: 'Courier New', Courier, monospace;
+        }
+        body{
+            background-color:snow;
+        }
+        h2{
+            color: darkslateblue;
+            text-align: center;
+        }
+        #container {
+            text-align: center;
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            border: darkslateblue;
+            border-style: solid;
+            border-radius:10px;
+            width: 50%;
+        }
+        label{
+            color: darkslateblue;
+        }
+        hr{
+            width: 50%; 
+            height: 2px; 
+            color: gray;
+            background-color: darkslateblue;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Aluno, Calcule Sua Média</h2>
+
+    <div id="container">
+        <label for="nomeAluno">Nome do Aluno: </label>
+        <input type="text" id="nomeAluno">
+
+        <br>
+        <label for="nota1">Nota 1: </label>
+        <input type="number" id="nota1">
+
+        <label for="nota2">Nota 2: </label>
+        <input type="number" id="nota2">
+
+        <br><br>
+        <input type="button" id="calcularMedia" value="Calcular Média" onclick="calcularMedia()">
+
+
+        <hr>
+
+        <h2>Resultado</h2>
+    
+        <div id="Resultado"></div>
+
+    </div>
+
+
+    <script>
+
+        function calcularMedia(){
+            var nome = document.getElementById("nomeAluno").value;
+            var nota1 = document.getElementById("nota1").value;
+            var nota2 = document.getElementById("nota2").value;
+            var resultado = document.getElementById("Resultado");
+
+            var media = Number((Number(nota1) + Number(nota2))/2);
+            
+            if (media >= 7){
+                resultado.style.color = 'green'
+                resultado.innerHTML = "Parabéns, " + nome + "! Você foi aprovado.";
+            } else if (media >= 3) {
+                resultado.style.color = 'blue'
+                resultado.innerHTML = "Atenção, " + nome + ", você está na final";
+            } else {
+                resultado.style.color = 'red'
+                resultado.innerHTML = "Infelizmente, " + nome + ", você foi reprovado";
+            }
+        }
+        
+    </script>
+
+
+</body>
+
+</html>

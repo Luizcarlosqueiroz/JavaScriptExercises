@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        *{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        body{
+            background-color:snow;
+        }
+        h2{
+            color: green;
+            text-align: center;
+        }
+        #container {
+            text-align: center;
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            border: green;
+            border-style: solid;
+            border-radius:10px;
+            width: 50%;
+        }
+        label{
+            color: green;
+            
+        }
+        hr{
+            width: 70%; 
+            height: 2px; 
+            color: green;
+            background-color: green;
+        }
+        #btnTabuada{
+            border: 1px solid darkolivegreen;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 16px;
+            margin: 10px 2px;
+            background-color: darkolivegreen;
+        }
+        #btnTabuada:hover{
+            background-color: greenyellow;
+            color: black;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <h2>Programa para Gerar Tabuada</h2>
+        <hr>
+
+        <label for="numbTabuada">Digite um número: </label>
+        <input type="number" id="numbTabuada">
+
+        <br>
+        <input type="button" value="Gerar tabuada" id="btnTabuada" >
+
+        <br>
+        <pre id="tabuada"></pre>
+
+    </div>
+
+    <script>
+
+        function gerarTabuada() {
+            var number = document.getElementById("numbTabuada");
+            var innumber = parseInt(number.value);
+            var tabuada = document.getElementById("tabuada");
+
+            if (innumber <= 0){
+                alert("Valor deve ser maior que 0.");
+            } else {
+                var resultado = '';
+
+                for (var i = 1; i <= 10; i++){
+                    resultado += innumber + " x " + i + " = " + (innumber * i) + "\n";
+                }
+            }
+
+            tabuada.textContent = resultado;
+
+        }
+
+        
+
+        var btnTabuada = document.getElementById("btnTabuada");
+        btnTabuada.onclick = gerarTabuada;
+
+    </script>
+
+</body>
+</html>
