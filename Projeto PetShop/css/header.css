@@ -1,0 +1,21 @@
+header {
+    height: 100px;
+    background-color: #1c8044;
+    position: relative;
+
+    display:inline-block;
+    width: 100%;
+}
+header h2{
+    float: left;
+    color: white;
+    font-size: 250%;
+    padding-left: 120px;
+}
+header img {
+    position: absolute;
+    left: 0px;
+
+    height: 100px;
+    width: auto;
+}

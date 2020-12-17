@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./css/envioEPagamento.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/main.css">
+
+    <title>Envio e Pagamento</title>
+</head>
+<body>
+
+    <header id="cabecalho">
+        <h2>Loja da Ração</h2>
+        <img src="./img/dog2.jpg">
+    </header>
+    
+    <div class="container">
+
+        <div class="caixaInfo" id="dadosCompra">
+
+            <h3>Resumo da Compra</h3>
+
+            <table>
+                <colgroup>
+                    <col style="width: 150px;">
+                    <col style="width: 100px;">
+                    <col style="width: 100px;">
+                    <col style="width: 150px;">
+                </colgroup>
+
+
+                <tr id="compra">
+                    <th>Tipo de Ração</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Total</th>
+                </tr>
+                <tr id="compraCao">
+                    <td>Cachorro</td>
+                    <td id="precoCao"></td>
+                    <td id="qtdCao"></td>
+                    <td id="valorCaoTotal"></td>
+                </tr>
+                <tr id="compraGato">
+                    <td>Gato</td>
+                    <td id="precoGato"></td>
+                    <td id="qtdGato"></td>
+                    <td id="valorGatoTotal"></td>
+                </tr>
+                <tr id="compraRoedor">
+                    <td>Roedor</td>
+                    <td id="precoRoedor"></td>
+                    <td id="qtdRoedor"></td>
+                    <td id="valorRoedorTotal"></td>
+                </tr>
+                <tr id="compraDesconto">
+                    <td colspan="3">Desconto</td>
+                    <td id="desconto"></td>
+                </tr>
+                <tr id="compraTotal">
+                    <td colspan="3">Total</td>
+                    <td id="valorTotal"></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <br>
+
+        <div class="caixaInfo" id="dadosConsumidor">
+            <h3>Dados</h3>
+            
+            <label for="cpf">CPF: </label>
+            <input type="cpf" id="cpf" placeholder="000.000.000-00" oninput="mascaraCpf(this)" required>
+
+            <br>
+            <label for="nome">Nome Completo: </label>
+            <input type="text" id="nome">
+
+            <br>
+            <label for="dataNascimento">Data de Nascimento: </label>
+            <input type="date" id="dataNascimento">
+        </div>
+
+        <br>
+
+        <div class="caixaInfo" id="dadosEndereco">
+
+            <h3>Endereço de Entrega</h3>
+
+            <label for="cep">CEP: </label>
+            <input type="number" id="cep" placeholder="00000000" max="99999999" required>
+
+            <br>
+            <label for="logradouro">Endereço: </label>
+            <input type="text" id="logradouro">
+
+            <br>
+            <label for="numero">Nº: </label>
+            <input type="text" id="numero">
+
+            <br>
+            <label for="bairro">Bairro: </label>
+            <input type="text" id="bairro">
+
+            <br>
+            <label for="localidade">Cidade: </label>
+            <input type="text" id="localidade">
+
+            <br>
+            <label for="uf">UF: </label>
+            <input type="text" id="uf">
+
+            
+        </div>
+
+    </div>
+
+    <div>
+        <br>
+        <button id="btnProxPag" onclick="">Próximo</button>
+    </div>
+
+    <footer style="height: 20px;">
+    </footer>
+
+    <script type="text/javascript" src="./js/cep.js"></script> 
+
+</body>
+</html>

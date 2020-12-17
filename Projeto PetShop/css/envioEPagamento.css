@@ -1,0 +1,49 @@
+
+.caixaInfo {
+    border: 2px solid #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+
+    padding: 0 10px 10px 10px;
+    width: 40%;
+
+    margin: auto;
+}
+
+
+
+
+#dadosCompra table{
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.caixaInfo label{
+    width: 200px;
+    display: inline-block;
+    padding: 0.2rem;
+}
+#logradouro {
+    width: 300px;
+}
+#numero, #uf{
+    width: 40px;
+}
+
+/* #compra th, #compraCao td, #compraGato td, #compraRoedor td{
+    text-align: center;
+} */
+#dadosCompra th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+#compraTotal, #compraDesconto {
+    background-color: #f2f2f2;
+}
+#compraDesconto {
+    color: red;
+}
+#btnProxPag {
+    margin: 0 auto;
+    display: block;
+}

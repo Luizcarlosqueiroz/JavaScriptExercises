@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/main.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"> </script> 
+
+    <title>Document</title>    
+
+</head>
+<body>
+    
+    <header id="cabecalho">
+        <h2>Loja da Ração</h2>
+        <img src="./img/dog2.jpg">
+    </header>
+
+    <div id="container">
+        
+        <div id="selecaoAnimal">
+        
+            <p>Selecione o(s) animal(is) para o(s) qual(is) deseja comprar ração</p>
+
+            <!-- CRIAR OVERLAY DEPOIS
+            https://www.w3schools.com/css/tryit.asp?filename=trycss_css_image_overlay_fade -->
+
+            <label>
+                <input type="radio" name="tipoAnimal" id="cachorro" value="racaoCachorro">
+                <img src="./img/dog1.jpg">
+            </label>
+
+            <label>
+                <input type="radio" name="tipoAnimal" id="gato" value="racaoGato">
+                <img src="./img/cat1.jpg">
+            </label>
+
+            <label>
+                <input type="radio" name="tipoAnimal" id="coelho" value="racaoRoedor">
+                <img src="./img/rabbit1.jpg">
+            </label>
+
+        </div>
+
+        <hr>
+
+
+        <div id="selecaoRacao">
+
+            <div class="racaoCachorro racaoGato racaoRoedor" style="display: none;">
+                <p>Nas compras acima de R$ 200,00 ganhe 10% de desconto.</p>
+            </div>
+
+            <div class="racaoCachorro opcaoRacao" style="display: none;">
+                <img src="./img/pet-food1.png">
+
+                <div class="textoRacao">
+                    <p>Ração para Cachorro</p>
+                    <h3>R$ 64,90</h3>
+
+                    <input type="number" id="quantidadeCachorro" class="quantidade" min="0" step="1" placeholder="Quantidade">
+                </div>
+            </div>
+
+
+            <div class="racaoGato opcaoRacao" style="display: none;">
+                <img src="./img/pet-food2.png">
+
+                <div class="textoRacao">
+                    <p>Ração para Gato</p>
+                    <h3>R$ 59,90</h3>
+
+                    <input type="number" id="quantidadeGato" class="quantidade" min="0" step="1" placeholder="Quantidade">
+                </div>
+            </div>
+
+
+            <div class="racaoRoedor opcaoRacao" style="display: none;">
+                <img src="./img/pet-food3.png">
+
+                <div class="textoRacao">
+                    <p>Ração para Roedores</p>
+                    <h3>R$ 47,90</h3>
+
+                    <input type="number" id="quantidadeRoedor" class="quantidade" min="0" step="1" placeholder="Quantidade">
+                </div>
+            </div>
+
+            <div class="racaoCachorro racaoGato racaoRoedor" style="display: none;">
+                <button id="comprar" onclick="">Comprar</button>
+            </div>
+            
+
+        </div>
+
+
+        
+        <footer>
+            <br>
+            <span>Photo by <a href="https://unsplash.com/@cedric_photography?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Cédric VT</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span><br>
+            <span>Photo by <a href="https://unsplash.com/@karsten116?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Karsten Winegeart</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span><br>
+            <span>Photo by <a href="https://unsplash.com/@karsten116?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Karsten Winegeart</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span><br>
+            Icons made by <a href="https://www.flaticon.com/authors/iconixar" title="iconixar">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+            <br>
+        </footer>
+
+
+
+    </div>
+
+    <script type="text/javascript" src="./js/index.js"></script> 
+
+</body>
+</html>

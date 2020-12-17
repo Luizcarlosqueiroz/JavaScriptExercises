@@ -1,0 +1,79 @@
+
+
+
+
+
+/* Esconder o botão do radio */
+[type=radio]{
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+#selecaoAnimal, #selecaoRacao {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+    text-align: center;
+}
+#selecaoAnimal label {
+    margin: 0 10px;
+}
+#selecaoAnimal img {
+    height: 200px;
+    width: 200px;
+}
+[type=radio] + img {
+    cursor: pointer;
+}
+[type=radio]:checked + img {
+    outline: 2px solid #1c8044;
+}
+
+hr {
+    height: 10px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #8c8c8c inset;
+}
+
+
+div.texto {
+    display: inline-block;
+    width: 100%
+}
+div.opcaoRacao{
+
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 20px;
+    padding-top: 20px;
+}
+div.opcaoRacao img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 100px;
+    width: 100px;
+}
+div.textoRacao {
+    text-align: center;
+    padding: 10px 20px;
+}
+input.quantidade{
+    width: 80px;
+}
+
+
+/* Remover as setas no campo de INPUT Number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}

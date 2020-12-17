@@ -1,0 +1,29 @@
+*{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    background-color:snow;
+}
+button {
+    background-color: #1c8044;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+h2, h3 {
+    color: #1c8044;
+}
+
+footer{
+    color: white;
+    font-size: 50%;
+    background-color: #1c8044;
+    margin-top: 50px;
+}
+footer a {
+    text-decoration: none;
+}
